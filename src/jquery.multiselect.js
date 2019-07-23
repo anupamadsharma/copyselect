@@ -364,21 +364,10 @@
                 
                    //callSaveNow();
                 getOnClickSave(currentId);
-                if (currentId=='users'){// fill next selected option  
-                    
-                    var select = optionsWrap.parent().siblings('.ms-list-'+ instance.listNumber +'.jqmsLoaded');
-                    if( optionsList.find('li:not(.optgroup, .selected, .ms-hidden)').length ) {
-                        // get unselected vals, mark as selected, return val list
-                        optionsList.find('li:not(.optgroup, .selected, .ms-hidden)').addClass('selected');
-                        optionsList.find('li.selected input[type="checkbox"]:not(:disabled)').prop( 'checked', true );
-                    }
-                    
-                    // toggle clicked option
-                    select.find('option[value="'+ instance._escapeSelector( $(this).val() ) +'"]').prop(
-                        'selected', $(this).is(':checked')
-                    ).closest('select').trigger('change');
-                    instance._updateSelectAllText();
-                    instance._updatePlaceholderText();
+                
+                if (currentId=='users'){// fill next selected option 
+					
+					
                 }
             });
             

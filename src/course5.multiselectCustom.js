@@ -46,18 +46,44 @@ function getOnClickSave(currentId) {
         if (currentId == 'users') {
             data.user = vals;
             //getData(currentId);
+            selectOptionUserMV( data.user);
             } else if (currentId == 'state') {
             data.state = vals;
         
             } else if (currentId == 'user_mv') {
             data.user_mv = vals;
             }
-        alert(' vals : ' + ' selected for : ' + currentId + ' : ' + vals);
+        alert(' vals HERER : ' + ' selected for : ' + currentId + ' : ' + vals);
 
-    });
+    }); 
   //  return true;
 }
 
+function selectOptionUserMV(_tmpDataArray){
+	/*var _selectBoxId = $("#users_mv").siblings(".ms-options-wrap").attr('id'); 
+	var _tmpInstance = $("#"+_selectBoxId);*/
+	
+	var _targetSelect = $("#users_mv").siblings(".ms-options-wrap").find('input[type="checkbox"]');
+	
+	
+	$(_targetSelect).each(function(index, row){
+		var  _valt = row.value;
+		var  _id = row.id;
+		var  _text = $("#"+_id).parent().text();
+		//console.log(_valt + ', ' + _id + ', ' + _text);
+		//console.log('__TEXT : ' + _text);
+		//$("#"+_id).prop("checked", true); 
+		// toggle clicked option
+		//select.find('option[value="'+ instance._escapeSelector( $(this).val() ) +'"]').prop(
+		//select.find('option[value="'+ _valt  +'"]').prop('selected', $("#"+_id).is(':checked')).closest('select').trigger('change');
+		if ($.inArray( _valt, _tmpDataArray ) >= 0 ){
+			$("#"+_id).prop("checked", true).closest('select').trigger('change'); 
+			/*var tmp = instance;  
+			instance._updateSelectAllText();
+			instance._updatePlaceholderText();*/
+		}
+	});
+}
 function addnewuser(){
     alert(data.user);
 }
