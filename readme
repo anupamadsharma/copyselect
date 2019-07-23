@@ -1,0 +1,26 @@
+tallyreports-dev.conf
+
+<VirtualHost *:80>
+        ServerName tallyreports-dev.com
+        ServerAlias tallyreports-devc.com
+        DocumentRoot /var/www/html/demo2019/tallyreports
+        <Directory /var/www/html/demo2019/tallyreports>
+                Options Indexes FollowSymLinks MultiViews
+                AllowOverride All
+                Order allow,deny
+                allow from all
+        </Directory>
+        ErrorLog /var/log/apache2/tallyreports-error.log
+
+        # Possible values include: debug, info, notice, warn, error, crit,
+        # alert, emerg.
+        #LogLevel warn
+        LogLevel error
+        CustomLog /var/log/apache2/tallyreports-dev-access.log combined
+</VirtualHost>
+
+127.0.0.1       tallyreports-dev.in
+
+
+a2disconf  a2dissite  a2enmod    a2ping     
+a2dismod   a2enconf   a2ensite   a2query
