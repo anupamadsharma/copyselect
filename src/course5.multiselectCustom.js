@@ -138,3 +138,7 @@ function callSaveNow(){
 function callResetQuery(currentId){	
 	alert('In reset : ' + currentId);	
 }
+
+function logOnConsole(msg){
+    console.log('Log ' + msg);
+}

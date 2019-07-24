@@ -363,11 +363,10 @@
                 var currentId = optionsWrap.parent().siblings('select').attr('id');
                 
                    //callSaveNow();
-                getOnClickSave(currentId);
+                //getOnClickSave(currentId);
                 
-                if (currentId=='users'){// fill next selected option 
-					
-					
+                if (currentId=='users'){// fill next selected option 		
+                    
                 }
             });
             
@@ -523,7 +522,8 @@
                 $(this).closest( 'li' ).toggleClass( 'selected' );
 
                 var select = optionsWrap.parent().siblings('.ms-list-'+ instance.listNumber +'.jqmsLoaded');
-
+                var _tttt = select.find('option[value="'+ instance._escapeSelector( $(this).val() ) +'"]');
+                
                 // toggle clicked option
                 select.find('option[value="'+ instance._escapeSelector( $(this).val() ) +'"]').prop(
                     'selected', $(this).is(':checked')
@@ -536,6 +536,30 @@
 
                 instance._updateSelectAllText();
                 instance._updatePlaceholderText();
+                
+                    var currentId = optionsWrap.parent().siblings('select').attr('id');
+                    if (currentId === 'users'){
+                        var _tmpMsgLog = 'Current Id ' +  currentId;
+                        logOnConsole(_tmpMsgLog);
+                        var _tmpInstace = instance.listNumber;
+
+                        //var select = optionsWrap.parent().siblings('.ms-list-'+ _tmpInstace +'.jqmsLoaded');
+
+                        var selectUser_mvOptions = $("#users_mv").find('option[value="'+ instance._escapeSelector( $(this).val() ) +'"]');
+
+                        selectUser_mv = '';
+                        // toggle clicked option
+                        if (selectUser_mvOptions.prop('selected') === true){
+                            selectUser_mvOptions.prop("checked", false).closest('select').trigger('change');
+                        }
+                        else{
+                            selectUser_mvOptions.prop("checked", true).closest('select').trigger('change');
+                        }
+                         
+                        //instance._updateSelectAllText();
+                        //instance._updatePlaceholderText();
+                    }	
+                    
             });
 
             // BIND FOCUS EVENT
